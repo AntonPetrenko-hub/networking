@@ -9,12 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var networkManager = NetworkManager()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    @IBAction func downloadPostsDidTap() {
+        DispatchQueue.main.async {
+            self.titleLabel.text = "Posts have been downloaded!"
+        }
+        networkManager.getAllPosts { (posts) in
+        }
+      
+        
+    }
+    
 }
 
